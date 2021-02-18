@@ -37,8 +37,10 @@ class ControladorAdministradores
 
                         echo '<script>
 
-						window.location = "inicio";
-
+			
+                       
+                        window.location = "inicio";
+        
 					</script>';
                     } else {
                         echo '<br>

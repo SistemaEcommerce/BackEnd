@@ -1,11 +1,16 @@
+<?php
+$servidor = Ruta::ctrRutaServidor();
+$url = Ruta::ctrRuta();
+?>
 <!--=====================================
 MENU
 ======================================-->
 
-<ul class="sidebar-menu">
-  <hr>
-  <br>
-  <br>
+<ul class="sidebar-menu" style="border-top:1px solid #fff;">
+  
+ <br>
+ <br>
+ <br>
 
   <li class="active"><a href="inicio"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
 

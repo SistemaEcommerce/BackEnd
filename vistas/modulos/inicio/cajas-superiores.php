@@ -1,3 +1,16 @@
+<?php
+
+$ventas = ControladorVentas::ctrMostrarTotalVentas();
+
+$visitas = ControladorVisitas::ctrMostrarTotalVisitas();
+
+$usuarios = ControladorUsuarios::ctrMostrarTotalUsuarios("id");
+$totalUsuarios = count($usuarios);
+
+$productos = ControladorProductos::ctrMostrarTotalProductos("id");
+$totalProductos = count($productos);
+
+?>
 <!--=====================================
 CAJAS SUPERIORES
 ======================================-->
@@ -11,7 +24,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
       
-      <h3>S/.150.000</h3>
+      <h3>S/<?php echo number_format($ventas["total"]); ?></h3>
 
       <p>Ventas</p>
     
@@ -26,7 +39,7 @@ CAJAS SUPERIORES
     </div>
     <!-- icon -->
     
-    <a href="#" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="ventas" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small-box -->
@@ -45,7 +58,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
       
-      <h3>53</h3>
+      <h3><?php echo number_format($visitas["total"]); ?></h3>
 
       <p>Visitas</p>
     
@@ -60,7 +73,7 @@ CAJAS SUPERIORES
     </div>
     <!-- icon -->
 
-    <a href="#" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="visitas" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->
@@ -79,7 +92,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
     
-      <h3>44</h3>
+      <h3><?php echo number_format($totalUsuarios); ?></h3>
 
       <p>Usuarios</p>
     
@@ -94,7 +107,7 @@ CAJAS SUPERIORES
     </div>
     <!-- icon -->
 
-    <a href="#" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="usuarios" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->
@@ -113,7 +126,7 @@ CAJAS SUPERIORES
     <!-- inner -->
     <div class="inner">
     
-      <h3>65</h3>
+      <h3><?php echo number_format($totalProductos); ?></h3>
 
       <p>Productos</p>
 
@@ -128,7 +141,7 @@ CAJAS SUPERIORES
     </div>
     <!-- icon -->
     
-    <a href="#" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
+    <a href="productos" class="small-box-footer">Más Info <i class="fa fa-arrow-circle-right"></i></a>
   
   </div>
   <!-- small box -->

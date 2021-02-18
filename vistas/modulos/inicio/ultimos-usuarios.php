@@ -1,3 +1,12 @@
+<?php
+
+$usuarios = ControladorUsuarios::ctrMostrarTotalUsuarios("fecha");
+
+$url = Ruta::ctrRuta();
+
+?>
+
+
 <!--=====================================
 ÚLTIMOS USUARIOS
 ======================================-->
@@ -26,53 +35,56 @@
 	    <!-- users-list -->
 	    <ul class="users-list clearfix">
 
-	      <li>
-	      <img src="vistas/dist/img/user1-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Alexander Pierce</a>
-	      <span class="users-list-date">Today</span>
-	      </li>
+	     <?php
 
-	      <li>
-	      <img src="vistas/dist/img/user8-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Norman</a>
-	      <span class="users-list-date">Yesterday</span>
-	      </li>
+	     if(count($usuarios) > 8){
 
-	      <li>
-	      <img src="vistas/dist/img/user7-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Jane</a>
-	      <span class="users-list-date">12 Jan</span>
-	      </li>
+	     	$totalUsuarios = 8;
+	     
+	     }else{
 
-	      <li>
-	      <img src="vistas/dist/img/user6-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">John</a>
-	      <span class="users-list-date">12 Jan</span>
-	      </li>
+	     	$totalUsuarios = count($usuarios);
 
-	      <li>
-	      <img src="vistas/dist/img/user2-160x160.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Alexander</a>
-	      <span class="users-list-date">13 Jan</span>
-	      </li>
+	     }
 
-	      <li>
-	      <img src="vistas/dist/img/user5-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Sarah</a>
-	      <span class="users-list-date">14 Jan</span>
-	      </li>
+	     for($i = 0; $i < $totalUsuarios; $i ++){
 
-	      <li>
-	      <img src="vistas/dist/img/user4-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Nora</a>
-	      <span class="users-list-date">15 Jan</span>
-	      </li>
+	     	if($usuarios[$i]["foto"] != ""){
 
-	      <li>
-	      <img src="vistas/dist/img/user3-128x128.jpg" alt="User Image">
-	      <a class="users-list-name" href="#">Nadia</a>
-	      <span class="users-list-date">15 Jan</span>
-	      </li>
+		     	if($usuarios[$i]["modo"] != "directo"){
+
+			     	echo '<li>
+					      <img src="'.$usuarios[$i]["foto"].'" alt="User Image" style="width:70%">
+					      <a class="users-list-name" href="">'.$usuarios[$i]["nombre"].'</a>
+					      <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
+					      </li>';
+
+				}else{
+
+
+			     	echo '<li>
+					      <img src="'.$url.$usuarios[$i]["foto"].'" alt="User Image" style="width:70%">
+					      <a class="users-list-name" href="">'.$usuarios[$i]["nombre"].'</a>
+					      <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
+					      </li>';
+
+				}
+
+			}else{
+
+				 echo ' <li>
+                  <img src="vistas/img/usuarios/default/anonymous.png" alt="User Image" style="width:70%;">
+                  <a class="users-list-name" href="#">'.$usuarios[$i]["nombre"].'</a>
+                  <span class="users-list-date">'.$usuarios[$i]["fecha"].'</span>
+                </li>';
+
+
+			}
+
+
+	     }
+
+	     ?> 
 
 	    </ul>
 	  	<!-- /.users-list -->

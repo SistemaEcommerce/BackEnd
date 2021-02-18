@@ -1,8 +1,12 @@
+<?php
+$servidor = Ruta::ctrRutaServidor();
+$url = Ruta::ctrRuta();
+?>
  <!-- main-header -->
  <header class="main-header" style="background-color: #0d1117;">
 
 	<!-- logo -->
-    <a href="#" class="logo" style="background-color: #0d1117;"style="background-color: #0d1117;">
+    <a href="<?php $url;?>inicio" class="logo" style="background-color: #0d1117;"style="background-color: #0d1117;">
       
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><img src="vistas/img/plantilla/icono.png" class="img-responsive" style="padding:10px; filter:contrast(200%);"></span>

@@ -1,3 +1,14 @@
+<?php
+
+$productos = ControladorProductos::ctrMostrarTotalProductos("ventas");
+
+$colores = array("red","green","yellow","aqua","purple");
+
+$totalVentas = ControladorProductos::ctrMostrarSumaVentas();
+
+?>
+
+
 <!--=====================================
 PRODUCTOS MÁS VENDIDOS
 ======================================-->
@@ -43,10 +54,14 @@ PRODUCTOS MÁS VENDIDOS
 
 	        <ul class="chart-legend clearfix">
 
-	          <li><i class="fa fa-circle-o text-red"></i> Samsung TV</li>
-	          <li><i class="fa fa-circle-o text-green"></i> Bicycle</li>
-	          <li><i class="fa fa-circle-o text-yellow"></i> Xbox One</li>
-	          <li><i class="fa fa-circle-o text-aqua"></i> PlayStation 4</li>
+          <?php
+
+          for($i = 0; $i < 5; $i++){
+
+              echo '<li><i class="fa fa-circle-o text-'.$colores[$i].'"></i> '.$productos[$i]["titulo"].'</li>';
+          }
+
+          ?>
 	        
 	        </ul>
 	      
@@ -65,24 +80,17 @@ PRODUCTOS MÁS VENDIDOS
 	    <!-- nav-pills -->
 	    <ul class="nav nav-pills nav-stacked">
 
-	      <li>        
-	          <a href="#">Samsung TV
-	          <span class="pull-right text-red"> 12%</span></a>
-	      </li>
+      <?php
 
-	      <li>
-	        <a href="#">Bicycle <span class="pull-right text-green"> 4%</span></a>      
-	      </li>
-	      
-	      <li>
-	        <a href="#">Xbox One
-	        <span class="pull-right text-yellow"> 0%</span></a>
-	      </li>
+        for($i = 0; $i < 5; $i++){
 
-	      <li>
-	        <a href="#">PlayStation 4
-	        <span class="pull-right text-yellow"> 0%</span></a>
-	      </li>
+            echo '<li>        
+                    <a href="#">'.$productos[$i]["titulo"].'
+                    <span class="pull-right text-'.$colores[$i].'"> '.ceil($productos[$i]["ventas"]*100/$totalVentas["total"]).'%</span></a>
+                </li>';
+        }
+
+      ?>
 
 	    </ul>
 	    <!-- nav-pills -->
@@ -102,42 +110,22 @@ PRODUCTOS MÁS VENDIDOS
   var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
   var pieChart       = new Chart(pieChartCanvas);
   var PieData        = [
-    {
-      value    : 700,
-      color    : '#f56954',
-      highlight: '#f56954',
-      label    : 'Chrome'
-    },
-    {
-      value    : 500,
-      color    : '#00a65a',
-      highlight: '#00a65a',
-      label    : 'IE'
-    },
-    {
-      value    : 400,
-      color    : '#f39c12',
-      highlight: '#f39c12',
-      label    : 'FireFox'
-    },
-    {
-      value    : 600,
-      color    : '#00c0ef',
-      highlight: '#00c0ef',
-      label    : 'Safari'
-    },
-    {
-      value    : 300,
-      color    : '#3c8dbc',
-      highlight: '#3c8dbc',
-      label    : 'Opera'
-    },
-    {
-      value    : 100,
-      color    : '#d2d6de',
-      highlight: '#d2d6de',
-      label    : 'Navigator'
-    }
+
+  <?php
+
+  for($i = 0; $i < 5; $i++){
+    
+    echo "{
+      value    : ".$productos[$i]["ventas"].",
+      color    : '".$colores[$i]."',
+      highlight: '".$colores[$i]."',
+      label    : '".$productos[$i]["titulo"]."'
+    },";
+
+  }
+
+  ?>
+    
   ];
   var pieOptions     = {
     // Boolean - Whether we should show a stroke on each segment
@@ -163,7 +151,7 @@ PRODUCTOS MÁS VENDIDOS
     // String - A legend template
     legendTemplate       : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<segments.length; i++){%><li><span style=\'background-color:<%=segments[i].fillColor%>\'></span><%if(segments[i].label){%><%=segments[i].label%><%}%></li><%}%></ul>',
     // String - A tooltip template
-    tooltipTemplate      : '<%=value %> <%=label%> users'
+    tooltipTemplate      : '<%=value %> <%=label%>'
   };
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.

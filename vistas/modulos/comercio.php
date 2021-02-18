@@ -1,46 +1,46 @@
 <!-- =============================================== -->
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Gestor comercio
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Gestor comercio</li>
-      </ol>
-    </section>
+<div class="content-wrapper"style="background-color: #0d1117;border-left:1px solid #fff;border-top:1px solid #fff;">
 
-    <!-- Main content -->
-    <section class="content">
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+  <section class="content-header" style="background-color: #0d1117;color: #fff;">
+    <h1>
+      Gestor comercio
+    </h1>
+    <ol class="breadcrumb"style="background-color: #0d1117;color: #fff;">
+      <li ><a href="inicio"style="color: #fff;"><i class="fa fa-dashboard"></i > Inicio</a></li>
+      <li class="active" style="background-color: #0d1117;color: #fff;">Gestor comercio</li>
+    </ol>
+  </section>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
+  <section class="content">
+
+    <div class="row"style="background-color: #0d1117;">
+      <div class="col-md-6">
+
+        <?php
+          include"comercio/logotipo.php";
+          include "comercio/colores.php";
+          include "comercio/redSocial.php";
+        ?>
+
       </div>
-      <!-- /.box -->
+      <div class="col-md-6">
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+      <?php
+    
+         include "comercio/codigos.php";
+   
+         include "comercio/informacion.php";
+ 
+         ?>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>
+<!-- /.content-wrapper -->
