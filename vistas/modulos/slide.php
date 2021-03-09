@@ -1,6 +1,22 @@
 <?php
 
 $slide = ControladorSlide::ctrMostrarSlide();
+
+
+
+if($_SESSION["perfil"] != "administrador" && $_SESSION["perfil"] != "editor"){
+
+echo '<script>
+
+  window.location = "inicio";
+
+</script>';
+
+return;
+
+}
+
+
 ?>
 <!-- =============================================== -->
 

@@ -7,14 +7,22 @@ MENU
 ======================================-->
 
 <ul class="sidebar-menu" style="border-top:1px solid #fff;">
-  
- <br>
- <br>
- <br>
+
+  <br>
+  <br>
+  <br>
+
+  <?php
+
+  if ($_SESSION["perfil"] == "administrador") {
+
+    echo '<li><a href="comercio"><i class="fa fa-files-o"></i> <span>Gestor Comercio</span></a></li>';
+  }
+
+  ?>
 
   <li class="active"><a href="inicio"><i class="fa fa-home"></i> <span>Inicio</span></a></li>
 
-  <li><a href="comercio"><i class="fa fa-files-o"></i> <span>Gestor Comercio</span></a></li>
 
   <li><a href="slide"><i class="fa fa-edit"></i> <span>Gestor Slide</span></a></li>
 
@@ -39,17 +47,38 @@ MENU
 
   <li><a href="productos"><i class="fa fa-product-hunt"></i> <span>Gestor Productos</span></a></li>
 
-  <li><a href="banner"><i class="fa fa-map-o"></i> <span>Gestor Banner</span></a></li>
+  
+  <?php
 
-  <li><a href="ventas"><i class="fa fa-shopping-cart"></i> <span>Gestor Ventas</span></a></li>
+  if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "editor") {
 
+    echo '<li><a href="banner"><i class="fa fa-map-o"></i> <span>Gestor Banner</span></a></li>';
+  }
+
+  ?>
+  <?php
+
+  if ($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "vendedor") {
+
+    echo '<li><a href="ventas"><i class="fa fa-shopping-cart"></i> <span>Gestor Ventas</span></a></li>';
+  }
+
+  ?>
   <li><a href="visitas"><i class="fa fa-map-marker"></i> <span>Gestor Visitas</span></a></li>
 
   <li><a href="usuarios"><i class="fa fa-users"></i> <span>Gestor Usuarios</span></a></li>
 
-  <li><a href="mensajes"><i class="fa fa-envelope"></i> <span>Gestor Mensajes</span></a></li>
 
-  <li><a href="perfiles"><i class="fa fa-key"></i> <span>Gestor Perfiles</span></a></li>
+  <?php
+
+   if($_SESSION["perfil"] == "administrador" || $_SESSION["perfil"] == "editor"){
+
+    echo '<li><a href="perfiles"><i class="fa fa-key"></i> <span>Gestor Perfiles</span></a></li>';
+
+  }
+
+  ?>  
+  
   <br>
   <br>
   <hr>

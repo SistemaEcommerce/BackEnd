@@ -8,43 +8,59 @@ USUARIOS
 	<!-- dropdown-toggle -->
 	<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 	
-		<img src="vistas/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-		
-		<span class="hidden-xs">BRAYANCT</span>
-	
-	</a>
-	<!-- dropdown-toggle -->
+	<?php
 
-	<!-- dropdown-menu -->
+		if($_SESSION["foto"] == ""){
+
+			echo '<img src="vistas/img/perfiles/default/anonymous.png" class="user-image" alt="User Image">';
+
+		}else{
+
+			echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+
+		}
+
+
+		?>	
+	</a>
+
 	<ul class="dropdown-menu">
 
-		<li class="user-header">
-		
-			<img src="vistas/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+<li class="user-header">
 
-			<p>
-			BRAYAN-DEV
-			</p>
-		
-		</li>
+	<?php
 
-		<li class="user-footer">
-		
-			<div class="pull-left">
-				
-				<a href="perfil" class="btn btn-default btn-flat">Perfil</a>
-			
-			</div>
-			
-			<div class="pull-right">
-			
-				<a href="salir" class="btn btn-default btn-flat">Salir</a>
-			
-			</div>
-		</li>
+	if($_SESSION["foto"] == ""){
 
-	</ul>
-	<!-- dropdown-menu -->
+		echo '<img src="vistas/img/perfiles/default/anonymous.png" class="user-image" alt="User Image">';
+
+	}else{
+
+		echo '<img src="'.$_SESSION["foto"].'" class="user-image" alt="User Image">';
+
+	}
+
+
+	?>	
+
+	<p>
+	<?php echo $_SESSION["nombre"]; ?>
+	<h4 style="color:white"><?php echo $_SESSION["perfil"]; ?></h4>
+	</p>
+
+</li>
+
+<li class="user-footer">
+
+	
+	<div class="pull-right">
+	
+		<a href="salir" class="btn btn-default btn-flat">Salir</a>
+	
+	</div>
+</li>
+
+</ul>
 
 </li>
 <!-- user-menu -->

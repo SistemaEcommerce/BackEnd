@@ -273,7 +273,6 @@ MOVIL (XS revisamos en 320px)
     }
 }
 
-.btnEliminarCategoria,
-.btnEliminarSubCategoria {
-    display: none;
+.box-body {
+    color: #000;
 }

@@ -111,8 +111,10 @@ REDES SOCIALES
     color: black;
 }
 
-.btnEliminarProducto {
-    display: none;
+.btnEliminarProducto,
+.btnEliminarBanner .btnEliminarCategoria,
+.btnEliminarSubCategoria {
+    display: block;
 }
 
 

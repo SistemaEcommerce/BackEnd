@@ -1,46 +1,93 @@
-<!-- =============================================== -->
+<?php
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Gestor ventas
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Gestor ventas</li>
-      </ol>
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
+if($_SESSION["perfil"] != "administrador" && $_SESSION["perfil"] != "editor"&& $_SESSION["perfil"] != "vendedor"){
 
-      <!-- Default box -->
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
+echo '<script>
 
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
-          </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+  window.location = "inicio";
+
+</script>';
+
+return;
+
+}
+
+?>
+<div class="content-wrapper" style="background-color: #0d1117;color: #fff;">
+  <!-- Content Header (Page header) -->
+  <section class="content-header" style="background-color: #0d1117;color: #fff;">
+
+    <h1>
+      Gestor Ventas
+    </h1>
+
+    <ol class="breadcrumb" style="background-color: #0d1117;color: #fff;">
+
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+      <li class="active">Gestor Ventas</li>
+
+    </ol>
+
+  </section>
+
+  <!-- Main content -->
+  <section class="content">
+
+    <!-- Default box -->
+    <div class="box">
+      <div class="box-header with-border">
+
+        <?php
+
+        include "inicio/grafico-ventas.php";
+
+        ?>
+
       </div>
-      <!-- /.box -->
+      <div class="box-body">
+        <div class="box-tools">
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
+          <a href="vistas/modulos/reportes.php?reporte=compras">
+
+            <button class="btn btn-success">Descargar reporte en Excel</button>
+
+          </a>
+
+        </div>
+         <br>
+        <table class="table table-bordered table-striped dt-responsive tablaVentas" width="100%">
+
+          <thead>
+
+            <tr>
+
+              <th style="width:10px">#</th>
+              <th>Producto</th>
+              <th>Imagen Producto</th>
+              <th>Cliente</th>
+              <th>Foto Cliente</th>
+              <th>Venta</th>
+              <th>Tipo</th>
+              <th>Proceso de envío</th>
+              <th>Metodo</th>
+              <th>Email</th>
+              <th>Dirección</th>
+              <th>País</th>
+              <th>Fecha</th>
+
+            </tr>
+
+          </thead>
+
+        </table>
+      </div>
+
+
+    </div>
+    <!-- /.box -->
+
+  </section>
+  <!-- /.content -->
+</div>

@@ -1,17 +1,20 @@
-<!-- =============================================== -->
+<div class="content-wrapper" style="background-color: #0d1117;color: #fff;">
+  <!-- Content Header (Page header) -->
+  <section class="content-header" style="background-color: #0d1117;color: #fff;">
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Gestor perfil
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Gestor perfil</li>
-      </ol>
-    </section>
+    <h1>
+      Gestor Perfiles
+    </h1>
+
+    <ol class="breadcrumb" style="background-color: #0d1117;color: #fff;">
+
+      <li><a href="inicio"><i class="fa fa-dashboard"></i> Inicio</a></li>
+
+      <li class="active">Gestor Perfiles</li>
+
+    </ol>
+
+  </section>
 
     <!-- Main content -->
     <section class="content">

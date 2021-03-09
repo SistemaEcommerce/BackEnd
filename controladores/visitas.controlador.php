@@ -28,6 +28,13 @@ class ControladorVisitas{
 		
 		return $respuesta;
 	}
+	static public function ctrMostrarVisitas(){
 
+		$tabla = "visitaspersonas";
+	
+		$respuesta = ModeloVisitas::mdlMostrarVisitas($tabla);
+		
+		return $respuesta;
+	}
 
 }

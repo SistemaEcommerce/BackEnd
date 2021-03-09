@@ -29,9 +29,13 @@ PÁGINA DE INICIO
     <!-- row -->
     <div class="row">
 
-       <?php
+           <?php
+
+        if($_SESSION["perfil"] == "administrador"){
 
         include "inicio/cajas-superiores.php";
+
+        }
       
       ?>
 
@@ -44,10 +48,12 @@ PÁGINA DE INICIO
       <div class="col-lg-6">
         
          <?php
-       
+     
           include "inicio/grafico-ventas.php";
           include "inicio/productos-mas-vendidos.php";      
+        
 
+          
         ?>
 
       </div>
